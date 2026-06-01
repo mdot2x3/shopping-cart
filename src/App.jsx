@@ -1,18 +1,18 @@
-import "./App.css";
+import styles from "./App.module.css";
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="app">
+    <div className={styles.app}>
       <header>
-        <nav className="nav">
+        <nav>
           <Navbar />
         </nav>
       </header>
-      <main className="main">
+      <main>
         <h1>Welcome to the Home Page.</h1>
       </main>
-      <footer className="footer">footer here</footer>
+      <footer>footer here</footer>
     </div>
   );
 }

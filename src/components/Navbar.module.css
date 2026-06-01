@@ -1,0 +1,15 @@
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+li {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+li:hover {
+  background-color: #e0e0e0;
+}
