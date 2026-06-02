@@ -1,15 +1,15 @@
-ul {
+.navbarUl {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-li {
+.navbarUl li {
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
-li:hover {
+.navbarUl li:hover {
   background-color: #e0e0e0;
 }

@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-header {
+.app header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,12 +13,12 @@ header {
   padding: 1rem;
   background-color: #f5f5f5;
 }
-nav {
+.app nav {
   padding: 1rem;
   background-color: #f5f5f5;
 }
 
-main {
+.app main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +27,7 @@ main {
   padding: 2rem;
 }
 
-footer {
+.app footer {
   display: flex;
   justify-content: center;
   align-items: center;
