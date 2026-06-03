@@ -5,11 +5,28 @@
 }
 
 .navbarUl li {
-  cursor: pointer;
+  border-radius: 4px;
+}
+
+.navbarUl a {
+  display: block;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background-color 0.1s ease,
+    color 0.3s ease;
 }
-.navbarUl li:hover {
+.navbarUl a:hover:not(.active) {
   background-color: #e0e0e0;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+}
+.active:hover {
+  background-color: #007bff;
+  color: white;
 }
