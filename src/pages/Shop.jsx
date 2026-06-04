@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Shop.module.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import Fetch from "../components/Fetch";
 
 function Shop() {
-  const [cardData, setCardData] = useState({});
+  const [cardData, setCardData] = useState([]);
+
+  useEffect(() => {
+    // call Fetch like this (immediately-invoked async function expression) to avoid making the useEffect callback async (which is not allowed)
+    (async () => {
+      await Fetch(setCardData);
+    })();
+  }, []);
 
   return (
     <div className={styles.shop}>
@@ -19,16 +27,9 @@ function Shop() {
           <h1>Welcome to the Shop Page.</h1>
         </div>
         <div className={styles.cardContainer}>
-          <Card
-            props={{
-              image: "https://i.imgur.com/eKN2xLe.jpeg",
-              title: "Birthday",
-              description:
-                "Today is someones birthday. Buy this image to help them celebrate.",
-              price: "$3.99",
-              category: "fun",
-            }}
-          />
+          {cardData.map((item) => (
+            <Card key={item.id} props={item} />
+          ))}
         </div>
       </main>
       <footer>
