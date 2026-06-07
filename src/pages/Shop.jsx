@@ -7,6 +7,7 @@ import Fetch from "../components/Fetch";
 
 function Shop() {
   const [cardData, setCardData] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     // call Fetch like this (immediately-invoked async function expression) to avoid making the useEffect callback async (which is not allowed)
@@ -14,6 +15,22 @@ function Shop() {
       await Fetch(setCardData);
     })();
   }, []);
+
+  const handleAddToCart = (product, quantity) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      // if item already in cart state, overwrite it with new updated value
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item,
+        );
+      }
+      // else add it to list
+      return [...prevCart, { ...product, quantity }];
+    });
+  };
 
   return (
     <div className={styles.shop}>
@@ -28,7 +45,7 @@ function Shop() {
         </div>
         <div className={styles.cardContainer}>
           {cardData.map((item) => (
-            <Card key={item.id} props={item} />
+            <Card key={item.id} product={item} onAddToCart={handleAddToCart} />
           ))}
         </div>
       </main>
