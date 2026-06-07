@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import { NavLink } from "react-router";
 
-const Navbar = () => {
+const Navbar = ({ cartCount }) => {
   return (
     <ul className={styles.navbarUl}>
       <li>
@@ -20,13 +20,14 @@ const Navbar = () => {
           Shop
         </NavLink>
       </li>
-      <li>
+      <li className={styles.cartTab}>
         <NavLink
           to="/cart"
           className={({ isActive }) => (isActive ? styles.active : undefined)}
         >
           Cart
         </NavLink>
+        {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
       </li>
     </ul>
   );

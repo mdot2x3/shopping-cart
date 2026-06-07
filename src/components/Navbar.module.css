@@ -30,3 +30,22 @@
   background-color: #007bff;
   color: white;
 }
+
+.cartTab {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: red;
+  color: white;
+  font-size: 0.75rem;
+  line-height: 18px;
+  text-align: center;
+}

@@ -25,11 +25,13 @@ function App() {
     console.log(cart);
   };
 
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div className={styles.app}>
       <header>
         <nav>
-          <Navbar />
+          <Navbar cartCount={cartCount} />
         </nav>
       </header>
       <main>
