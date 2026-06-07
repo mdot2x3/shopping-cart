@@ -5,17 +5,7 @@ import Footer from "../components/Footer";
 function Cart() {
   return (
     <div className={styles.cart}>
-      <header>
-        <nav>
-          <Navbar />
-        </nav>
-      </header>
-      <main>
-        <h1>Welcome to the Cart Page.</h1>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <h1>Welcome to the Cart Page.</h1>
     </div>
   );
 }
