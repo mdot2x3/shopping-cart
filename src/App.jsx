@@ -25,6 +25,18 @@ function App() {
     console.log(cart);
   };
 
+  const handleUpdateQuantity = (id, newQuantity) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item,
+      ),
+    );
+  };
+
+  const handleDeleteItem = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
+
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -35,7 +47,15 @@ function App() {
         </nav>
       </header>
       <main>
-        <Outlet context={{ cart, setCart, handleAddToCart }} />
+        <Outlet
+          context={{
+            cart,
+            setCart,
+            handleAddToCart,
+            handleUpdateQuantity,
+            handleDeleteItem,
+          }}
+        />
       </main>
       <footer>
         <Footer />
