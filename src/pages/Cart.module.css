@@ -1,6 +1,103 @@
 .cart {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem;
+}
+
+.itemsColumn {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1rem;
+}
+
+.summaryColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #f8f8f8;
+  position: sticky;
+  top: 1rem;
+}
+
+.cartTitle {
+  grid-column: 1 / -1;
+  margin-bottom: 0.5rem;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cartActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.checkoutButton,
+.clearButton,
+.contButton {
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.checkoutButton {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+}
+
+.checkoutButton:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.clearButton {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+}
+
+.clearButton:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.contButton {
+  background-color: white;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+}
+
+.contButton:hover {
+  background-color: #2563eb;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.checkoutButton:active,
+.clearButton:active,
+.contButton:active {
+  transform: translateY(0);
 }

@@ -37,6 +37,10 @@ function App() {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const handleClearCart = () => {
+    setCart([]);
+  };
+
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -54,6 +58,7 @@ function App() {
             handleAddToCart,
             handleUpdateQuantity,
             handleDeleteItem,
+            handleClearCart,
           }}
         />
       </main>
