@@ -33,8 +33,12 @@ const CartItem = ({ product, onQuantityChange, onDelete }) => {
       }
       // else, user cancelled so reset to 1
       setLocalQty(1);
-      onQuantityChange(product.id, number);
+      onQuantityChange(product.id, 1);
+      return;
     }
+
+    // if valid, push change back to App
+    onQuantityChange(product.id, number);
   };
 
   const handleDeleteClick = () => {
