@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Card.module.css";
 import Stepper from "./Stepper";
 
 const Card = ({ product, onAddToCart }) => {
   const [quantity, setQuantity] = useState(1);
+  const [addedMessage, setAddedMessage] = useState("");
+
+  useEffect(() => {
+    if (!addedMessage) return;
+
+    const timeoutId = setTimeout(() => {
+      setAddedMessage("");
+    }, 1500);
+
+    return () => clearTimeout(timeoutId);
+  }, [addedMessage]);
 
   const handleAddToCart = () => {
+    const selectedAmount = Number(quantity) || 1;
+
     onAddToCart(product, quantity);
+    setAddedMessage(`${selectedAmount} added to cart!`);
   };
 
   return (
@@ -14,7 +28,11 @@ const Card = ({ product, onAddToCart }) => {
       <img src={product.image} alt={product.title} />
       <h2>{product.title}</h2>
       <p>{product.description}</p>
-      <p>${product.price.toFixed(2)}</p>
+      {addedMessage ? (
+        <p className={styles.addedMessage}>{addedMessage}</p>
+      ) : (
+        <p className={styles.price}>${product.price.toFixed(2)}</p>
+      )}
       <Stepper quantity={quantity} setQuantity={setQuantity} />
       <button onClick={handleAddToCart}>Add to Cart</button>
       <a href="">{product.category}</a>
