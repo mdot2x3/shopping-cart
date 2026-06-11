@@ -14,7 +14,7 @@ const Card = ({ product, onAddToCart }) => {
       <img src={product.image} alt={product.title} />
       <h2>{product.title}</h2>
       <p>{product.description}</p>
-      <p>{product.price}</p>
+      <p>${product.price.toFixed(2)}</p>
       <Stepper quantity={quantity} setQuantity={setQuantity} />
       <button onClick={handleAddToCart}>Add to Cart</button>
       <a href="">{product.category}</a>

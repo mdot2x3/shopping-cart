@@ -21,8 +21,6 @@ function App() {
       // else add it to list
       return [...prevCart, { ...product, quantity }];
     });
-    // for testing
-    console.log(cart);
   };
 
   const handleUpdateQuantity = (id, newQuantity) => {

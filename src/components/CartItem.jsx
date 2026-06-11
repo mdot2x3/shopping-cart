@@ -53,7 +53,7 @@ const CartItem = ({ product, onQuantityChange, onDelete }) => {
       <img src={product.image} alt={product.title} />
       <div className={styles.detailsContainer}>
         <p className={styles.title}>{product.title}</p>
-        <p className={styles.price}>{product.price}</p>
+        <p className={styles.price}>${product.price.toFixed(2)}</p>
       </div>
       <Stepper quantity={localQty} setQuantity={handleLocalSet} />
       <button className={styles.deleteBtn} onClick={handleDeleteClick}>
