@@ -6,25 +6,38 @@ import Fetch from "../components/Fetch";
 
 function Shop() {
   const [cardData, setCardData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { handleAddToCart } = useOutletContext();
 
   useEffect(() => {
     // call Fetch like this (immediately-invoked async function expression) to avoid making the useEffect callback async (which is not allowed)
     (async () => {
-      await Fetch(setCardData);
+      try {
+        setIsLoading(true);
+        await Fetch(setCardData);
+      } finally {
+        setIsLoading(false);
+      }
     })();
   }, []);
 
   return (
     <div className={styles.shop}>
       <div className={styles.mainTitle}>
-        <h1>Welcome to the Shop Page.</h1>
+        <h1>Welcome to the Shop Page</h1>
       </div>
-      <div className={styles.cardContainer}>
-        {cardData.map((item) => (
-          <Card key={item.id} product={item} onAddToCart={handleAddToCart} />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className={styles.loadingState}>
+          <div className={styles.spinner} />
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <div className={styles.cardContainer}>
+          {cardData.map((item) => (
+            <Card key={item.id} product={item} onAddToCart={handleAddToCart} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
