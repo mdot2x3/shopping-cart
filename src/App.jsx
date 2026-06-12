@@ -36,7 +36,8 @@ function App() {
   };
 
   const handleClearCart = () => {
-    setCart([]);
+    const confirmClear = window.confirm("Remove all items from cart?");
+    if (confirmClear) setCart([]);
   };
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
