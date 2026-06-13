@@ -15,12 +15,13 @@ function Cart() {
 
   return (
     <div className={styles.cart}>
-      <h1 className={styles.cartTitle}>Your Cart</h1>
-
       {cart.length === 0 ? (
-        <p className={styles.emptyState}>Your cart is empty.</p>
+        <p className={styles.emptyState}>
+          Your cart is empty — check out our <Link to="/shop">Shop</Link> page.
+        </p>
       ) : (
         <>
+          <h1 className={styles.cartTitle}>Your Cart</h1>
           <div className={styles.itemsColumn}>
             {cart.map((item) => (
               <CartItem
