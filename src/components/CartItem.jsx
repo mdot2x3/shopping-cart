@@ -48,17 +48,23 @@ const CartItem = ({ product, onQuantityChange, onDelete }) => {
     if (confirmDelete) onDelete(product.id);
   };
 
+  // calc the subtotal for each item
+  const subtotal = product.price * (Number(localQty) || 0);
+
   return (
     <div className={styles.cartItem}>
       <img src={product.image} alt={product.title} />
-      <div className={styles.detailsContainer}>
+      <div className={styles.leftContainer}>
         <p className={styles.title}>{product.title}</p>
         <p className={styles.price}>${product.price.toFixed(2)}</p>
+        <Stepper quantity={localQty} setQuantity={handleLocalSet} />
       </div>
-      <Stepper quantity={localQty} setQuantity={handleLocalSet} />
-      <button className={styles.deleteBtn} onClick={handleDeleteClick}>
-        Delete
-      </button>
+      <div className={styles.rightContainer}>
+        <p className={styles.subtotal}>${subtotal.toFixed(2)}</p>
+        <button className={styles.removeBtn} onClick={handleDeleteClick}>
+          Remove
+        </button>
+      </div>
     </div>
   );
 };
