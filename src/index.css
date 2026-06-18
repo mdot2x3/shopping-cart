@@ -7,6 +7,6 @@
 body {
   min-height: 100vh;
   font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-  background: #808080;
-  color: #000000;
+  background: linear-gradient(180deg, #f9f7f3 0%, #ffffff 100%);
+  color: #111827;
 }
