@@ -17,7 +17,6 @@
 }
 .app nav {
   padding: 1rem;
-  background-color: #f5f5f5;
 }
 
 .app main {
@@ -27,7 +26,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 2rem;
 }
 
 .app footer {

@@ -37,9 +37,6 @@ function Shop() {
 
   return (
     <div className={styles.shop}>
-      <div className={styles.mainTitle}>
-        <h1>Welcome to the Shop Page</h1>
-      </div>
       <div className={styles.filterBar}>
         <label htmlFor="categoryFilter">Category:</label>
         <select
