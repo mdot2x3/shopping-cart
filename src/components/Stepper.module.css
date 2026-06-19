@@ -1,4 +1,27 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .stepper input {
   width: 40px;
+  height: 34px;
+  border-top: #2563eb solid 1px;
+  border-bottom: #2563eb solid 1px;
+  border-left: none;
+  border-right: none;
   text-align: center;
+}
+
+.stepper button {
+  background: #2563eb;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.15s;
 }
