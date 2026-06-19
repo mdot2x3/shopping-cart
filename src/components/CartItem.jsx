@@ -23,20 +23,6 @@ const CartItem = ({ product, onQuantityChange, onDelete }) => {
     const number = Number(value);
     if (Number.isNaN(number)) return;
 
-    if (number === 0) {
-      const confirmRemove = window.confirm(
-        `Set quantity to 0 will remove "${product.title}". Remove item?`,
-      );
-      if (confirmRemove) {
-        onDelete(product.id);
-        return;
-      }
-      // else, user cancelled so reset to 1
-      setLocalQty(1);
-      onQuantityChange(product.id, 1);
-      return;
-    }
-
     // if valid, push change back to App
     onQuantityChange(product.id, number);
   };

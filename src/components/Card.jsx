@@ -19,7 +19,7 @@ const Card = ({ product, onAddToCart }) => {
   const handleAddToCart = () => {
     const selectedAmount = Number(quantity) || 1;
 
-    onAddToCart(product, quantity);
+    onAddToCart(product, selectedAmount);
     setAddedMessage(`${selectedAmount} added to cart!`);
   };
 
