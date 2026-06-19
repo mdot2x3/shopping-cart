@@ -27,15 +27,17 @@ const Card = ({ product, onAddToCart }) => {
     <div className={styles.card}>
       <img src={product.image} alt={product.title} />
       <h2>{product.title}</h2>
-      <p>{product.description}</p>
+      <p className={styles.description}>{product.description}</p>
       {addedMessage ? (
         <p className={styles.addedMessage}>{addedMessage}</p>
       ) : (
         <p className={styles.price}>${product.price.toFixed(2)}</p>
       )}
       <Stepper quantity={quantity} setQuantity={setQuantity} />
-      <button onClick={handleAddToCart}>Add to Cart</button>
-      <a href="">{product.category}</a>
+      <button className={styles.addToCartButton} onClick={handleAddToCart}>
+        Add to Cart
+      </button>
+      <p className={styles.category}>{product.category}</p>
     </div>
   );
 };
