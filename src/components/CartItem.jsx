@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router";
 import Stepper from "./Stepper";
 import styles from "./CartItem.module.css";
 
